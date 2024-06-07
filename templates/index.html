@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Weather Me</title>
+  </head>
+  <body
+    class="bg-[url('./images/bg_image.jpg')] bg-center bg-cover bg-no-repeat min-h-screen flex flex-col gap-5 items-center p-10"
+  >
+    <!-- ------------------------- App Title ---------------------------------->
+    <div class="w-fit flex items-center">
+      <h1 class="text-2xl font-bold text-white">Weather Me</h1>
+      <img
+        src="{% static 'images/116.png' %}"
+        class="w-14 h-14"
+        alt="App icon"
+      />
+    </div>
+
+    <!-- ------------------------- Search bar -------------------------------->
+    <form
+      action=""
+      class="flex gap-2 w-4/5 md:w-3/5 lg:w-[35%] items-center justify-center"
+      method="get"
+    >
+      <input
+        type="text"
+        name="city"
+        required
+        placeholder="Enter a city"
+        class="py-2 px-3 w-full rounded-full bg-white text-white text-lg outline ease-in-out duration-500 outline-2 outline-white/70 backdrop-blur-lg focus:bg-white/20"
+      />
+      <button type="submit">
+        <ion-icon
+          class="text-white text-2xl p-3 font-black rounded-full bg-white/50"
+          name="search"
+        ></ion-icon>
+      </button>
+    </form>
+
+    <!-- -------------------------- City Card --------------------------------->
+    <div
+      class="flex p-5 w-4/5 bg-white/20 justify-between rounded-3xl backdrop-blur-sm text-white shadow-2xl cursor-pointer ease-in-out duration-500 hover:scale-[105%] md:w-3/5 lg:w-[35%]"
+    >
+      <div id="left" class="flex flex-col">
+        <div id="top" class="mb-6">
+          <p class="font-bold text-5xl">{{ temperature }}°C</p>
+          <p class="font-semibold">Now</p>
+        </div>
+        <p class="font-semibold text-xl">{{ city }}, {{ country }}</p>
+      </div>
+      <div id="right" class="flex justify-center items-center">
+        <img
+          src="{% static 'images/113.png' %}"
+          alt="weather image"
+          class="w-28 h-28"
+        />
+      </div>
+    </div>
+
+    <!-- -------------------- Weather Statistics ------------------------------->
+    <div class="flex w-full justify-between bg-[#0198afb6] p-3 backdrop-blur-2xl rounded-xl md:w-3/5 lg:w-[35%]">
+        <!-- Left-Side -->
+        <div id="left" class="flex flex-col justify-start">
+            <img src="{{ icon_url }}" alt="" /> <!-- Icon -->
+            <p class="font-bold text-4xl text-white">{{ weather }}</p> <!-- Weather -->
+            <p class="text-semibold text-white">{{ weather_description }}</p> <!-- Description -->
+        </div>
+
+        <!-- Right-Side -->
+        <div id="right" class="w-1/2 flex flex-col space-y-2">
+            <!-- Temperature -->
+            <div class="flex w-full justify-around bg-white/30 p-1 rounded-lg items-center gap-6">
+                <ion-icon class="w-8 h-8 text-white" name="thermometer"></ion-icon>
+                <div class="">
+                    <p class="font-bold text-2xl text-right text-[#ff5a00]">{{ temperature }} °C</p>
+                    <p class="text-sm text-white text-right">Temperature</p>
+                </div>
+            </div>
+
+            <!-- Wind Speed-->
+            <div class="flex w-full justify-around bg-white/30 p-1 rounded-lg items-center gap-6">
+                <ion-icon class="w-8 h-8 text-white" name="speedometer"></ion-icon>
+                <div class="">
+                    <p class="font-bold text-2xl text-right text-[#ff5a00]">{{ wind_speed }} m/s</p>
+                    <p class="text-sm text-white text-right">Wind Speed</p>
+                </div>
+            </div>
+
+            <!-- Humidity -->
+            <div class="flex w-full justify-around bg-white/30 p-1 rounded-lg items-center gap-6">
+                <ion-icon class="w-8 h-8 text-white" name="rainy"></ion-icon>
+                <div class="">
+                    <p class="font-bold text-2xl text-right text-[#ff5a00]">{{ humidity }} %</p>
+                    <p class="text-sm text-white text-right">Humidity</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
