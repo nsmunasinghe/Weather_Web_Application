@@ -33,8 +33,6 @@ The Weather Web Application is a dynamic and user-friendly web-based platform de
 ``` powershell
 git clone https://github.com/nsmunasinghe/Weather_Web_Application.git
 ```
-
-    Navigate to Weather_Web_Application directory
 ``` powershell
 cd Weather_Web_Application
 ```
