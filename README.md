@@ -4,8 +4,6 @@ The Weather Web Application is a dynamic and user-friendly web-based platform de
 
 ## 📜 Table of Contents
 
-- [⛅ Weather Web Application 🌈](#-weather-web-application-)
-  - [📜 Table of Contents](#-table-of-contents)
   - [📌 Features](#-features)
   - [📌 Technologies Utilized](#-technologies-utilized)
   - [📌 Installation](#-installation)
